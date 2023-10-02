@@ -1,7 +1,7 @@
 # Rime table
 # coding: utf-8
 #@/db_name  custom_phrase.txt
-#@/db_type	tabledb
+#@/db_type	stabledb
 #
 # 用於【朙月拼音】系列輸入方案
 # 【小狼毫】0.9.21 以上
@@ -35,6 +35,7 @@ Pintos	pintos	100
 又双叒叕	yyy
 
 [捂脸]	wl
+:facepalm:	wl	2
 [旺柴]	wc
 [苦涩]	ks
 👎	ruo
@@ -42,6 +43,7 @@ Pintos	pintos	100
 🤔	sikao
 🎉	haoye
 😅	liuhan
-😅	cbddl
 GitLab	gitlab
 LaTeX latex
+luyuxuanleo@gmail.com	eml
+luyuxuanleo@gmail.com	luy
