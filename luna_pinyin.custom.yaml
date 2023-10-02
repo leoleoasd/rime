@@ -135,7 +135,7 @@ patch:
     # 自動糾正一些常見的按鍵錯誤
     - derive/([aeiou])ng$/$1gn/        # dagn => dang 
     - derive/([dtngkhrzcs])o(u|ng)$/$1o/  # zho => zhong|zhou
-    - derive/ong$/on/                  # zhonguo => zhong guo
+    # - derive/ong$/on/                  # zhonguo => zhong guo
     - derive/ao$/oa/                   # hoa => hao
     - derive/([iu])a(o|ng?)$/a$1$2/    # tain => tian
 
@@ -143,3 +143,13 @@ patch:
   #'translator/preedit_format':
   #  - "xform/([nljqxyzcs])v/$1ü/"
 
+  __include: lua_select_character:/patch__patch:
+__patch:
+# Rx: lotem/rime-octagram-data:customize:schema=luna_pinyin,model=hans {
+  - patch/+:
+      __include: grammar:/hans
+# }
+# Rx: emoji:customize:schema=luna_pinyin {
+  - patch/+:
+      __include: emoji_suggestion:/patch
+# }

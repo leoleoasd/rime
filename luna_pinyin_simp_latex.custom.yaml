@@ -73,7 +73,11 @@ patch:
       "=": "="
       "/": "、"
       '\': "\\"
+      '{': '{'
+      '}': '}'
+      '$': '$'
       "'": { pair: ["「", "」"] }
+      "\"": { pair: ["『", "』"] }
       "[": "["
       "]": "]"
       "<": "《"
@@ -130,7 +134,7 @@ patch:
     #- derive/iu$/iou/                  # jiu = jiou,
 
     # 自動糾正一些常見的按鍵錯誤
-    #- derive/([aeiou])ng$/$1gn/        # dagn => dang 
+    #- derive/([aeiou])ng$/$1gn/        # dagn => dang
     #- derive/([dtngkhrzcs])o(u|ng)$/$1o/  # zho => zhong|zhou
     #- derive/ong$/on/                  # zhonguo => zhong guo
     #- derive/ao$/oa/                   # hoa => hao
@@ -142,3 +146,15 @@ patch:
   engine/translators/+: 
     - lua_translator@date_translator
     - lua_translator@time_translator
+  'engine/processors/@before 0':
+    lua_processor@select_character_processor
+# __patch:
+# # Rx: lotem/rime-octagram-data:customize:schema=luna_pinyin_simp_latex,model=hans {
+#   - patch/+:
+#       __include: grammar:/hans
+# # }
+__patch:
+# Rx: emoji:customize:schema=luna_pinyin_simp_latex {
+  - patch/+:
+      __include: emoji_suggestion:/patch
+# }

@@ -13,14 +13,14 @@ schema:
 switches:
   - name: ascii_mode
     reset: 0
-    states: [ 中文, 西文 ]
+    states: [中文, 西文]
   - name: full_shape
-    states: [ 半角, 全角 ]
+    states: [半角, 全角]
   - name: zh_simp
     reset: 1
-    states: [ 漢字, 汉字 ]
+    states: [漢字, 汉字]
   - name: ascii_punct
-    states: [ 。，, ．， ]
+    states: [。，, ．，]
 
 engine:
   processors:
@@ -75,7 +75,7 @@ translator:
 custom_phrase:
   dictionary: ""
   user_dict: custom_phrase
-  db_class: stabledb
+  db_class: userdb
   enable_completion: false
   enable_sentence: false
   initial_quality: 1

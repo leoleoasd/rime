@@ -74,6 +74,7 @@ patch:
       "/": "/"
       '\': "、"
       "'": { pair: ["「", "」"] }
+      "\"": { pair: ["『", "』"] }
       "[": "["
       "]": "]"
       "<": "《"
@@ -141,4 +142,16 @@ patch:
 # librime-lua 输入动态时间和日期
   engine/translators/+: 
     - lua_translator@date_translator
-    - lua_translator@time_translator
+    - lua_translator@time_translator__patch:
+  'engine/processors/@before 0':
+    lua_processor@select_character_processor
+# __patch:
+# # Rx: lotem/rime-octagram-data:customize:schema=luna_pinyin_simp,model=hans {
+#   - patch/+:
+#       __include: grammar:/hans
+# # }
+__patch:
+# Rx: emoji:customize:schema=luna_pinyin_simp {
+  - patch/+:
+      __include: emoji_suggestion:/patch
+# }
